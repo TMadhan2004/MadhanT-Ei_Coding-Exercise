@@ -2,7 +2,7 @@
 
 This repository contains Java console-based implementations demonstrating design patterns.
 
- - Ex1: Behavioral design patterns
+ - Ex1: Creational, Structural, Behavioral design patterns
  - Ex2: Astronaut Daily Schedule Organizer Programming Exercise 
 
 ---
@@ -36,31 +36,30 @@ Location: `Ex1/`
 
 ### Creational
 #### Abstract Factory
-- Location: `Ex1/creational/abstract-factory/`
-- Produces related UI components (e.g., `WindowsButton`, `WindowsTextField`) via `UIFactory` without coupling to concrete classes.
+- **Use case**: Create families of related UI components (e.g., buttons, text fields) across platforms without changing client code.
+- **Key idea**: `UIFactory` defines creation methods and is realized by `WindowsUIFactory`/`MacUIFactory` to produce matching `Button` and `TextField` pairs; client code selects a factory once and builds a consistent UI family.
 
 #### Singleton
-- Location: used broadly in this repo
-- Examples: `Ex2/ScheduleManager.java` and `Ex2/Logger.java` (single instance lifecycle)
+- **Use case**: Share a single instance for global concerns (e.g., configuration, logging, schedule manager).
+- **Key idea**: A private constructor with a static `getInstance()` ensures a unique instance (e.g., `creational/singleton/Logger`, and in Ex2 `ScheduleManager`/`Logger`), providing centralized access without passing instances around.
 
 ### Structural
 #### Adapter
-- Location: `Ex1/structural/adapter/`
-- Example: `InrToUsdAdapter` adapts INR amounts to USD for a client expecting USD (interface compatibility).
+- **Use case**: Integrate an INR-based payment service with a USD-only processor expected by the client.
+- **Key idea**: `InrToUsdAdapter` implements the client's `PaymentProcessor` interface and internally uses `ThirdPartyUSPay`, converting INR→USD and mapping method signatures so the client remains unchanged.
 
 #### Decorator
-- Location: `Ex1/structural/decorator/`
-- Example: `EmailNotifier` with `SmsDecorator` / `PushDecorator` layering additional notifications (behavior extension at runtime).
+- **Use case**: Add SMS/Push notifications on top of a base Email notifier at runtime.
+- **Key idea**: `EmailNotifier` is the base; `SmsDecorator`/`PushDecorator` wrap a `Notifier` and delegate while appending behavior, allowing layered notifications without modifying the base class.
 
 ### Behavioral
 #### Chain of Responsibility
 - **Use case**: Expense approval workflow.
-- **Flow**: Manager (≤ 500) → Director (≤ 5,000) → CEO (> 5,000)
 - **Key idea**: Each handler processes or passes the request to the next.
 
 #### Observer
 - **Use case**: Weather station notifying multiple displays.
-- **Key idea**: Subject (`WeatherData`) maintains a list of `Observer`s and notifies them on data changes.
+- **Key idea**: `WeatherData` stores `Observer` listeners and calls `update(temp, humidity, pressure)` on each when `setMeasurements(...)` is invoked; displays implement `Observer` to react instantly.
 
 ---
 
