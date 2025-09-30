@@ -55,7 +55,7 @@ Location: `Ex1/`
 ### Behavioral
 #### Chain of Responsibility
 - **Use case**: Expense approval workflow.
-- **Key idea**: Each handler processes or passes the request to the next.
+- **Key idea**: `Manager` (≤ 500) handles small expenses, `Director` (≤ 5,000) handles medium, and anything higher is approved by `CEO`. The chain is wired using `Approver.setNext(...)`, and each approver either approves or forwards via `passToNext(...)`.
 
 #### Observer
 - **Use case**: Weather station notifying multiple displays.
