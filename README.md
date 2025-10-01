@@ -123,9 +123,9 @@ A console-based application that helps astronauts organize their daily schedules
 ### Usage
 Build & run:
 ```bash
-cd Ex2
-javac *.java
-java Main
+cd Ex2/src
+javac $(find . -name "*.java")
+java ex2.app.Main
 ```
 
 Menu:
@@ -141,13 +141,13 @@ Menu:
 
 ### Example Session
 ```
-Add: Brush, 7:00–7:30, Medium → Task added successfully. No conflicts.
-Complete: Brush → Task marked as completed.
-Complete again: Brush → Error: Task is already completed.
-Add: Bathing, 8:00–8:30, Low → Task added successfully. No conflicts.
+Add: Morning Exercise, 7:00–7:30, Medium → Task added successfully. No conflicts.
+Complete: Morning Exercise → Task marked as completed.
+Complete again: Morning Exercise → Error: Task is already completed.
+Add: Meeting, 8:00–8:30, Low → Task added successfully. No conflicts.
 View by priority (6):
-07:00 - 07:30: Brush [High] (Completed)
-08:00 - 08:30: Bathing [Low]
+07:00 - 07:30: Morning Exercise [High] (Completed)
+08:00 - 08:30: Meeting [Low]
 ```
 
 ## Requirements 
