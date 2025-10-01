@@ -141,7 +141,7 @@ Menu:
 
 ### Example Session
 ```
-Add: Morning Exercise, 7:00–7:30, Medium → Task added successfully. No conflicts.
+Add: Morning Exercise, 7:00–7:30, High → Task added successfully. No conflicts.
 Complete: Morning Exercise → Task marked as completed.
 Complete again: Morning Exercise → Error: Task is already completed.
 Add: Meeting, 8:00–8:30, Low → Task added successfully. No conflicts.
